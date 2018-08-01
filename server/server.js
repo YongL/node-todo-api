@@ -23,6 +23,14 @@ app.post('/todo', (req, res)=> {
     })
 });
 
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        // it is always good to send back with the object, so we have more flexible (only array not flexible in the future)
+        res.send({todos})
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
 
 app.listen(3000, () => {
     console.log('Starting on port 3000'); // modified
