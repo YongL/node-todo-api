@@ -24,7 +24,7 @@ app.post('/todo', (req, res)=> {
 });
 
 app.get('/todos', (req, res) => {
-    Todo.find().then((todos) => {
+    Todo.find().then((todos) => { // looking for one using findOne passing _id inside the object or findById(id) don't have use _id: 'fdfd http://mongoosejs.com/docs/api.html#Model
         // it is always good to send back with the object, so we have more flexible (only array not flexible in the future)
         res.send({todos})
     }, (e) => {
