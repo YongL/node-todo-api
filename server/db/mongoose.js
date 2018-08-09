@@ -9,7 +9,7 @@ let db = {
     localhost: 'mongodb://localhost:27017/TodoDb',
     mlab: 'mongodb://mangoMonkey:K1n9h0n0@ds117422.mlab.com:17422/mango'
   };
-mongoose.connect( db.localhost || db.mlab);
+mongoose.connect( db.mlab || db.localhost);
 // mongoose.connect('mongodb://localhost:27017/TodoDb');
 
 module.exports = {mongoose};
