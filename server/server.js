@@ -9,7 +9,7 @@ var {ObjectID} = require('mongodb');
 // useuful in post when pass json via body
 
 var app = express();
-
+var PORT = process.env.PORT || 3000; // configure port (differiate btw local)
 app.use(bodyParser.json()); // middle]ware
 
 app.post('/todo', (req, res)=> {
@@ -50,8 +50,8 @@ app.get('/todos/:id', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Starting on port 3000'); // modified
+app.listen(PORT, () => {
+    console.log(`Starting on port ${PORT}`); // modified
 });
 
 module.exports = {app};
